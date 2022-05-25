@@ -4,15 +4,15 @@
     <id>MovesenseBindingAndroid</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>Andy Wigley</authors>
+    <authors>Andy Wigley, Morten Liland</authors>
     <owners>Andy Wigley</owners>
     <licenseUrl>https://github.com/AndyCW/MovesenseDotNet/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/AndyCW/MovesenseDotNet</projectUrl>
     <iconUrl>http://www.movesense.com</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.NET binding for Movesense Android mdslib</description>
-    <releaseNotes>Movesense mdslib 1.63.0 binding for Xamarin Android.</releaseNotes>
-    <copyright>Copyright 2020</copyright>
+    <releaseNotes>Movesense mdslib 1.68.0 binding for Xamarin Android.</releaseNotes>
+    <copyright>Copyright 2022</copyright>
     <tags>Xamarin Plugin Movesense</tags>
     <dependencies>
       <dependency id="Xamarin.Google.Dagger" version="2.15.0" />
