@@ -30,7 +30,7 @@ namespace NothingApp2
             addButton.AccessibilityLabel = "addButton";
             NavigationItem.RightBarButtonItem = addButton;
 
-            DetailViewController = (DetailViewController)((UINavigationController)SplitViewController.ViewControllers[1]).TopViewController;
+            //DetailViewController = (DetailViewController)((UINavigationController)SplitViewController.ViewControllers[1]).TopViewController;
 
             TableView.Source = dataSource = new DataSource(this);
         }

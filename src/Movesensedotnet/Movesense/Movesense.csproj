@@ -36,7 +36,6 @@
     <Authors>Andy Wigley, Morten Liland</Authors>
     <Copyright>Copyright 2022</Copyright>
     <Company></Company>
-    <TargetFramework>netstandard1.0</TargetFramework>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
@@ -54,12 +53,12 @@
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
     <Compile Include="Platforms\Android\**\*.cs" />
-    <PackageReference Include="MovesenseBindingAndroid" Version="1.68.0.1" />
+    <PackageReference Include="MovesenseBindingAndroid" Version="1.68.0.1-beta" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
     <Compile Include="Platforms\iOS\**\*.cs" />
-    <PackageReference Include="MovesenseBindingiOS" Version="1.63.0-beta" />
+    <PackageReference Include="MovesenseBindingiOS" Version="1.68.0-beta" />
   </ItemGroup>
 
 
