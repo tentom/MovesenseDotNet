@@ -58,7 +58,7 @@
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
     <Compile Include="Platforms\iOS\**\*.cs" />
-    <PackageReference Include="MovesenseBindingiOS" Version="1.68.0-beta" />
+    <PackageReference Include="MovesenseBindingiOS" Version="1.68.0.1-beta" />
   </ItemGroup>
 
 
