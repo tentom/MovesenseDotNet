@@ -8,7 +8,7 @@ The output from this project has been published on NuGet, but you do not need to
 
 The output from this solution is packaged in a NuGet package **MovesenseBindingAndroid.*version*.nupkg**. These are the steps to build this package:
 
-1. Get the latest version of the Mdslib libraries. These are published by Suunto at <https://bitbucket.org/suunto/movesense-mobile-lib/>. You will find the latest version of the Android **mdslib** in the movesense-mobile-lib/android/Movesense folder. For example, *mdslib-1.44.0(1)-release.aar*. 
+1. Get the latest version of the Mdslib libraries. These are published by Suunto at <https://bitbucket.org/movesense/movesense-mobile-lib/>. You will find the latest version of the Android **mdslib** in the movesense-mobile-lib/android/Movesense folder. For example, *mdslib-1.44.0(1)-release.aar*. 
 
 1. Copy the Android mdslib and paste it into the **/Jars** folder in this project. Add it to the project.
 

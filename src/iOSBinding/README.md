@@ -9,7 +9,7 @@ The output from this project has been published on NuGet, but you do not need to
 
 The output from this solution is packaged in a NuGet package **MovesenseBindingiOS.*version*.nupkg**. These are the steps to build this package:
 
-1. Get the latest version of the Mdslib libraries. These are published by Suunto at <https://bitbucket.org/suunto/movesense-mobile-lib/>. You will find the latest version of the iOS **mdslib** in the *movesense-mobile-lib\IOS\Movesense\Release-iphoneos* folder. It is named, *libmds.a*. 
+1. Get the latest version of the Mdslib libraries. These are published by Suunto at <https://bitbucket.org/movesense/movesense-mobile-lib/>. You will find the latest version of the iOS **mdslib** in the *movesense-mobile-lib\IOS\Movesense\Release-iphoneos* folder. It is named, *libmds.a*. 
 
 1. Copy the *libmds.a* and paste it into the **/Resources** folder in this project, replacing the existing version.
 
