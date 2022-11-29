@@ -89,8 +89,9 @@ namespace MdsLibrary
                 var serial = ((NSString)bodyDict.ValueForKey(new NSString("Serial"))).ToString();
 
                 // Get the matching Uuid
-                var uniqueIDGuid = this.UuidToSerialMapper.First(kv => kv.Value == serial).Key;
-
+                // First has been been throwing errors, Single or default might cast an exception if there are multiple entries for the same key
+                // So going for FirstOrDefault should keep it from throwing an exception
+                var uniqueIDGuid = this.UuidToSerialMapper.FirstOrDefault(kv => kv.Value == serial).Key;
                 Debug.WriteLine($"MdsConnectionListener OnDeviceConnectionEvent DISCONNECTED: Serial {serial}");
                 DeviceDisconnected?.Invoke(this, new MdsConnectionListenerEventArgs(serial, uniqueIDGuid));
             }
