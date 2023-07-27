@@ -38,7 +38,7 @@ namespace Movesense
 
 		// @property (readonly, nonatomic) MDSResponseMethod method;
 		[Export ("method")]
-		MDSResponseMethod Method { get; }
+        MDSResponseMethod Method { get; }
 
 		// -(NSData * _Nonnull)getStreamData;
 		[Export ("getStreamData")]
@@ -144,10 +144,9 @@ namespace Movesense
 	{
 		// @property (readonly, nonatomic) MDSRequestMethod method;
 		[Export ("method")]
-		MDSRequestMethod Method { get; }
-
-		// @property (readonly, nonatomic) NSDictionary * _Nonnull header;
-		[Export ("header")]
+        MDSRequestMethod Method { get; }
+        // @property (readonly, nonatomic) NSDictionary * _Nonnull header;
+        [Export ("header")]
 		NSDictionary Header { get; }
 
 		// @property (readonly, nonatomic) NSString * _Nonnull contentType;

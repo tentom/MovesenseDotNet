@@ -1,4 +1,6 @@
-﻿using MdsLibrary.Model;
+﻿
+
+using MdsLibrary.Model;
 using Plugin.Movesense;
 using System;
 using System.Diagnostics;

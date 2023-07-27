@@ -167,12 +167,6 @@
       <Version>6.0.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\MovesenseTestingiOS\MovesenseTestingiOS.csproj">
-      <Project>{FDD2D6C3-599E-4549-8F11-2079946B7518}</Project>
-      <Name>MovesenseTestingiOS</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\MovesenseDemo\MovesenseDemo.projitems" Label="Shared" />
 </Project>
