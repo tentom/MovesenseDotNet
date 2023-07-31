@@ -117,7 +117,7 @@ namespace NothingApp2
     {
         override public void UpdatedState(CBCentralManager mgr)
         {
-            if (mgr.State == CBCentralManagerState.PoweredOn)
+            if (mgr.State == CBManagerState.PoweredOn)
             {
                 //Passing in null scans for all peripherals. Peripherals can be targeted by using CBUIIDs
                 CBUUID[] cbuuids = new[] { CBUUID.FromString("61353090-8231-49cc-b57a-886370740041") };

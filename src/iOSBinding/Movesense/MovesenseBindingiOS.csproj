@@ -1,73 +1,41 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A32D6356-4081-4825-977A-3ED0C9F12C65}</ProjectGuid>
-    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Movesense</RootNamespace>
-    <AssemblyName>MovesenseBindingiOS</AssemblyName>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <PackOnBuild>true</PackOnBuild>
+    <TargetFrameworks>net7.0-ios</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <IsBindingProject>true</IsBindingProject>
+
     <PackageId>MovesenseBindingiOS</PackageId>
-    <PackageVersion>1.68.0.8-beta</PackageVersion>
-    <PackageReleaseNotes>Movesense mdslib v2.68.0 binding for Xamarin iOS and MAUI iOS.</PackageReleaseNotes>
-    <PackageLicenseUrl>https://github.com/AndyCW/MovesenseDotNet/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageIconUrl>http://www.movesense.com</PackageIconUrl>
+    <Version>1.68.0.7-beta</Version>
     <Authors>Anze Vodovnik, Andy Wigley, Morten Liland</Authors>
     <Description>.NET binding for Movesense iOS mdslib</Description>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+
+    <RootNamespace>Movesense</RootNamespace>
+    <PackOnBuild>true</PackOnBuild>
+
+    <PackageReleaseNotes>Movesense mdslib v1.68.0 binding for Xamarin iOS and MAUI iOS.</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/AndyCW/MovesenseDotNet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>http://www.movesense.com</PackageIconUrl>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="Xamarin.iOS" />
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\libmds.linkwith.cs" />
-  </ItemGroup>
+
   <ItemGroup>
     <NativeReference Include="Resources\libmds.a">
       <Kind>Static</Kind>
-      <SmartLink>False</SmartLink>
+      <SmartLink>True</SmartLink>
       <IsCxx>True</IsCxx>
-      <LinkerFlags></LinkerFlags>
       <Frameworks>Security, CoreBluetooth, CoreFoundation</Frameworks>
+      <LinkerFlags>-lz</LinkerFlags>
+      <ForceLoad>False</ForceLoad>
+      <LinkTargets>ArmV7;Arm64;Simulator</LinkTargets>
     </NativeReference>
   </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NuGet.Build.Packaging">
-      <Version>0.2.2</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
