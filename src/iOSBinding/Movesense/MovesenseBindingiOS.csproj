@@ -6,7 +6,7 @@
     <IsBindingProject>true</IsBindingProject>
 
     <PackageId>MovesenseBindingiOS</PackageId>
-    <Version>1.68.0.7-beta</Version>
+    <Version>1.68.0.27-beta</Version>
     <Authors>Anze Vodovnik, Andy Wigley, Morten Liland</Authors>
     <Description>.NET binding for Movesense iOS mdslib</Description>
 

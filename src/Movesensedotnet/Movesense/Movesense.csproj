@@ -22,8 +22,8 @@
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <AssemblyVersion>0.0.1.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-    <Version>2.68.0.8-beta</Version>
-    <PackageVersion>2.68.0.8-beta</PackageVersion>
+    <Version>2.68.0.11-beta</Version>
+    <PackageVersion>2.68.0.11-beta</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>
@@ -49,7 +49,7 @@
 
     <Owners>Andy Wigley</Owners>
     <Authors>Andy Wigley, Morten Liland</Authors>
-    <Copyright>Copyright 2022</Copyright>
+    <Copyright>Copyright 2023</Copyright>
     <Company></Company>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -70,8 +70,7 @@
 
 
     <PackageReference Include="Xamarin.Google.Dagger" Version="2.39.1" Condition="'$(TargetFramework)' == 'net7.0-android'" />
-    <PackageReference Include="MovesenseBindingiOS" Version="1.68.0.8-beta" Condition="'$(TargetFramework)' == 'net7.0-iOS'" />
-
+    <PackageReference Include="MovesenseBindingiOS" Version="1.68.0.27-beta" />
   </ItemGroup>
 
   <ItemGroup>
