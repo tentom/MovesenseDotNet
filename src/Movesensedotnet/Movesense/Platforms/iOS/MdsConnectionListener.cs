@@ -1,5 +1,4 @@
-﻿#if __IOS__
-using Foundation;
+﻿using Foundation;
 using Movesense;
 using Plugin.Movesense;
 using System;
@@ -15,7 +14,6 @@ namespace MdsLibrary
 
     public sealed partial class MdsConnectionListener
     {
-
         private static bool mIsListening = false;
 
         private TaskCompletionSource<bool> setuplistenertcs;
@@ -102,4 +100,3 @@ namespace MdsLibrary
         }
     }
 }
-#endif

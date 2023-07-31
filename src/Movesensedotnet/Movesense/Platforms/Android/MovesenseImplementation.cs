@@ -1,5 +1,4 @@
-﻿#if __ANDROID__
-using Com.Movesense.Mds;
+﻿using Com.Movesense.Mds;
 using MdsLibrary;
 using MdsLibrary.Api;
 using MdsLibrary.Model;
@@ -89,4 +88,3 @@ namespace Plugin.Movesense
         }
     }
 }
-#endif

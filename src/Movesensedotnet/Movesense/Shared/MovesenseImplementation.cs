@@ -16,6 +16,7 @@ namespace Plugin.Movesense
 
         #region Properties
 
+
         /// <summary>
         /// Get the MdsConnectionListener instance.
         /// </summary>

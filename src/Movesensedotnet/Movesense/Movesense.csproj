@@ -1,16 +1,29 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;MonoAndroid10.0;Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>net7.0-ios</TargetFrameworks>
+    <!--
+    <TargetFrameworks>$(TargetFrameworks);net7.0-android</TargetFrameworks>
+    -->
+
     <AssemblyName>Plugin.Movesense</AssemblyName>
     <RootNamespace>Plugin.Movesense</RootNamespace>
     <PackageId>Plugin.Movesense</PackageId>
-    
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <AssemblyVersion>0.0.1.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-    <Version>2.68.0.7-beta</Version>
-    <PackageVersion>2.68.0.7-beta</PackageVersion>
+    <Version>2.68.0.8-beta</Version>
+    <PackageVersion>2.68.0.8-beta</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>
@@ -18,17 +31,19 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
+    <!--
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    -->
     
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/AndyCW/MovesenseDotNet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AndyCW/MovesenseDotNet</RepositoryUrl>
-    <PackageReleaseNotes>V2.68.0 wraps the v1.68.0 mdslib native libraries</PackageReleaseNotes>
+    <PackageReleaseNotes>V1.68.0 wraps the v1.68.0 mdslib native libraries</PackageReleaseNotes>
     <PackageIconUrl>https://github.com/AndyCW/MovesenseDotNet/raw/Nuget/src/Nuget/Movesense/icon.png</PackageIconUrl>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageTags>xamarin, ios, android, xamarin.forms, plugin, Movesense</PackageTags>
+    <PackageTags> ios, android, plugin, Movesense, MAUI</PackageTags>
     
-    <Title>Movesense Plugin for Xamarin</Title>
+    <Title>Movesense Plugin for MAUI</Title>
     <Summary>Summary of nuget</Summary>
     <Description>Movesense API for Xamarin</Description>
 
@@ -39,28 +54,25 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;NET;NET7_0;NETCOREAPP</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <Compile Include="Shared\**\*.cs" />
-  </ItemGroup>
 
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
-  </ItemGroup>
 
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
-    <Compile Include="Platforms\Android\**\*.cs" />
-    <PackageReference Include="MovesenseBindingAndroid" Version="1.68.0.1-beta" />
-  </ItemGroup>
+    <PackageReference Include="Xamarin.Google.Dagger" Version="2.39.1" Condition="'$(TargetFramework)' == 'net7.0-android'" />
+    <PackageReference Include="MovesenseBindingiOS" Version="1.68.0.8-beta" Condition="'$(TargetFramework)' == 'net7.0-iOS'" />
 
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
-    <Compile Include="Platforms\iOS\**\*.cs" />
-    <PackageReference Include="MovesenseBindingiOS" Version="1.63.0-beta" />
   </ItemGroup>
-
 
   <ItemGroup>
     <None Remove="Shared\Api\HttpEnum.cs" />
@@ -70,45 +82,6 @@
     <None Remove="Shared\Api\MdsSubscription.cs" />
     <None Remove="Shared\Model\AppInfo.cs" />
   </ItemGroup>
-
-
-  <ItemGroup>
-    <None Include="Platforms\Android\MdsConnectionListener.cs" />
-    <None Include="Platforms\Android\MdsConnectionService.cs" />
-    <None Include="Platforms\Android\MovesenseImplementation.cs" />
-    <None Include="Platforms\iOS\MdsConnectionListener.cs" />
-    <None Include="Platforms\iOS\MdsConnectionService.cs" />
-    <None Include="Platforms\iOS\MovesenseImplementation.cs" />
-  </ItemGroup>
-
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid10.0'">
-    <PackageReference Include="Xamarin.Google.Dagger">
-      <Version>2.39.1</Version>
-    </PackageReference>
-  </ItemGroup>
-
-
-  <!--
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">
-    <Compile Include="Platforms\DotNet\**\*.cs" />
-  </ItemGroup>
-  -->
-
-
-  <!--
-  <ItemGroup Condition=" '$(TargetFramework)' == 'Tizen40' ">
-    <Compile Include="Platforms\Tizen\**\*.cs" />
-    <PackageReference Include="Tizen.NET" Version="4.0.0" />
-  </ItemGroup>
-  -->
-  
-  <!--
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Compile Include="Platforms\DotNet\**\*.cs" />
-  </ItemGroup>
-  -->
-
 
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

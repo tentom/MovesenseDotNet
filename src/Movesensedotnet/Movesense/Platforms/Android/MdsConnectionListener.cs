@@ -1,5 +1,4 @@
-﻿#if __ANDROID__
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -88,4 +87,3 @@ namespace MdsLibrary
         }
     }
 }
-#endif

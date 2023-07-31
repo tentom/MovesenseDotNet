@@ -1,5 +1,4 @@
-﻿#if __IOS__
-using MdsLibrary;
+﻿using MdsLibrary;
 using MdsLibrary.Api;
 using Movesense;
 using Plugin.Movesense.Api;
@@ -81,4 +80,3 @@ namespace Plugin.Movesense
         }
     }
 }
-#endif

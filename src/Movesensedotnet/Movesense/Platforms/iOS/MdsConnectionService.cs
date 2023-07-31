@@ -1,5 +1,4 @@
-﻿#if __IOS__
-using Plugin.Movesense;
+﻿using Plugin.Movesense;
 using System;
 using System.Threading.Tasks;
 
@@ -92,4 +91,3 @@ namespace MdsLibrary
         }
     }
 }
-#endif

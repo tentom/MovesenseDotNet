@@ -1,5 +1,4 @@
-﻿#if __ANDROID__
-using Plugin.Movesense;
+﻿using Plugin.Movesense;
 using System;
 using System.Linq;
 using System.Text;
@@ -18,6 +17,7 @@ namespace MdsLibrary
         private string mMACAddress;
         private TaskCompletionSource<IMovesenseDevice> connectiontcs;
         private TaskCompletionSource<object> disconnectTcs;
+
 
         /// <summary>
         ///  Return an instance of MdsConnection Service
@@ -103,4 +103,3 @@ namespace MdsLibrary
         }
     }
 }
-#endif
