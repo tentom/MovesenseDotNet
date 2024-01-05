@@ -7,7 +7,7 @@
         <UsingMaui>true</UsingMaui>
     </PropertyGroup>
     <PropertyGroup>
-        <MtouchExtraArgs>-v -v -v -v -lz</MtouchExtraArgs>
+        <MtouchExtraArgs>-v -v -v -v -lz -lcpp</MtouchExtraArgs>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
         <CodesignKey>iPhone Developer</CodesignKey>
@@ -62,6 +62,6 @@
       <CreatePackage>false</CreatePackage>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Plugin.Movesense" Version="2.68.0.11-beta" />
+        <PackageReference Include="Plugin.Movesense" Version="3.15.0-beta" />
     </ItemGroup>
 </Project>

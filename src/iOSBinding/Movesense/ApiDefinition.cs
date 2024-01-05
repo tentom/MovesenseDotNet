@@ -1,5 +1,6 @@
 using System;
 using Foundation;
+using CoreBluetooth;
 using ObjCRuntime;
 
 namespace Movesense
@@ -7,8 +8,16 @@ namespace Movesense
 	[Static]
 	partial interface Constants
 	{
-		// extern NSString *const _Nonnull MovesenseServiceUUID;
-		[Field ("MovesenseServiceUUID", "__Internal")]
+        // extern double MovesenseApiVersionNumber;
+        [Field("MovesenseApiVersionNumber", "__Internal")]
+        double MovesenseApiVersionNumber { get; }
+
+        // extern const unsigned char[] MovesenseApiVersionString;
+        [Field("MovesenseApiVersionString", "__Internal")]
+        IntPtr MovesenseApiVersionString { get; }
+
+        // extern NSString *const _Nonnull MovesenseServiceUUID;
+        [Field ("MovesenseServiceUUID", "__Internal")]
 		NSString MovesenseServiceUUID { get; }
 	}
 
@@ -86,7 +95,7 @@ namespace Movesense
 
 		// -(instancetype _Nonnull)initWithStatus:(NSInteger)status response:(NSString * _Nonnull)response;
 		[Export ("initWithStatus:response:")]
-		IntPtr Constructor (nint status, string response);
+        NativeHandle Constructor (nint status, string response);
 	}
 
 	// @interface MDSTunnelRequest : NSObject
@@ -131,11 +140,11 @@ namespace Movesense
 
 		// -(instancetype _Nonnull)initWithStatus:(NSInteger)status message:(NSString * _Nonnull)response;
 		[Export ("initWithStatus:message:")]
-		IntPtr Constructor (nint status, string response);
+        NativeHandle Constructor (nint status, string response);
 
 		// -(instancetype _Nonnull)initWithStatus:(NSInteger)status streamData:(NSData * _Nonnull)response;
 		[Export ("initWithStatus:streamData:")]
-		IntPtr Constructor (nint status, NSData response);
+        NativeHandle Constructor (nint status, NSData response);
 	}
 
 	// @interface MDSResourceRequest : NSObject
@@ -145,6 +154,7 @@ namespace Movesense
 		// @property (readonly, nonatomic) MDSRequestMethod method;
 		[Export ("method")]
         MDSRequestMethod Method { get; }
+
         // @property (readonly, nonatomic) NSDictionary * _Nonnull header;
         [Export ("header")]
 		NSDictionary Header { get; }
@@ -177,7 +187,11 @@ namespace Movesense
 		// @optional -(void)didFailToConnectWithError:(const NSError * _Nonnull)error;
 		[Export ("didFailToConnectWithError:")]
 		void DidFailToConnectWithError (NSError error);
-	}
+
+        // @optional -(void)didFailToConnectWithErrorToUUID:(const NSError * _Nullable)error uuid:(const NSUUID * _Nullable)uuid;
+        [Export("didFailToConnectWithErrorToUUID:uuid:")]
+        void DidFailToConnectWithErrorToUUID([NullAllowed] NSError error, [NullAllowed] NSUuid uuid);
+    }
 
 	// @interface MDSWrapper : NSObject
 	[BaseType (typeof(NSObject))]
@@ -193,7 +207,7 @@ namespace Movesense
 
 		// -(instancetype _Nonnull)init:(NSBundle * _Nonnull)configBundle;
 		[Export ("init:")]
-		IntPtr Constructor (NSBundle configBundle);
+        NativeHandle Constructor (NSBundle configBundle);
 
 		// -(void)connectPeripheralWithUUID:(NSUUID * _Nonnull)uuid;
 		[Export ("connectPeripheralWithUUID:")]
@@ -258,5 +272,13 @@ namespace Movesense
 		// -(void)deactivate;
 		[Export ("deactivate")]
 		void Deactivate ();
-	}
+
+        // -(void)setDeviceDiscovery:(BOOL)state;
+        [Export("setDeviceDiscovery:")]
+        void SetDeviceDiscovery(bool state);
+
+        // -(void)setLogLevel:(MDSLogLevel)level;
+        [Export("setLogLevel:")]
+        void SetLogLevel(MDSLogLevel level);
+    }
 }

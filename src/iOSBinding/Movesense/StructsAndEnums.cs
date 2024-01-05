@@ -28,4 +28,13 @@ namespace Movesense
 		Subscribe,
 		Unsubscribe
 	}
+
+    [Native]
+    public enum MDSLogLevel : ulong
+    {
+        Debug,
+        Info,
+        Error,
+        None
+    }
 }

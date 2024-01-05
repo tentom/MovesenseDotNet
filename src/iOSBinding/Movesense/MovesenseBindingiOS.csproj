@@ -6,14 +6,14 @@
     <IsBindingProject>true</IsBindingProject>
 
     <PackageId>MovesenseBindingiOS</PackageId>
-    <Version>1.68.0.27-beta</Version>
+    <Version>3.15.0.0-beta</Version>
     <Authors>Anze Vodovnik, Andy Wigley, Morten Liland</Authors>
     <Description>.NET binding for Movesense iOS mdslib</Description>
 
     <RootNamespace>Movesense</RootNamespace>
     <PackOnBuild>true</PackOnBuild>
 
-    <PackageReleaseNotes>Movesense mdslib v1.68.0 binding for Xamarin iOS and MAUI iOS.</PackageReleaseNotes>
+    <PackageReleaseNotes>Movesense mdslib v3.15.0 binding for Xamarin iOS and MAUI iOS.</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/AndyCW/MovesenseDotNet/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl>http://www.movesense.com</PackageIconUrl>
   </PropertyGroup>
@@ -28,14 +28,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="Resources\libmds.a">
+    <NativeReference Include="Resource\libmds.a">
       <Kind>Static</Kind>
-      <SmartLink>True</SmartLink>
+      <SmartLink>False</SmartLink>
       <IsCxx>True</IsCxx>
+      <ForceLoad>True</ForceLoad>
+      <LinkTargets>ArmV7;Arm64;Simulator,Simulator64</LinkTargets>
+      <!-- <LinkerFlags>-lz</LinkerFlags> -->
       <Frameworks>Security, CoreBluetooth, CoreFoundation</Frameworks>
-      <LinkerFlags>-lz</LinkerFlags>
-      <ForceLoad>False</ForceLoad>
-      <LinkTargets>ArmV7;Arm64;Simulator</LinkTargets>
     </NativeReference>
   </ItemGroup>
 </Project>
