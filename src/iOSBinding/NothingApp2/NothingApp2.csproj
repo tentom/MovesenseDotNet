@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net7.0-ios;</TargetFrameworks>
+        <TargetFrameworks>net8.0-ios;</TargetFrameworks>
         <OutputType>Exe</OutputType>
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.3</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">12.0</SupportedOSPlatformVersion>
         <Platforms>iPhoneSimulator;iPhone;AnyCPU</Platforms>
         <UsingMaui>true</UsingMaui>
     </PropertyGroup>
@@ -34,7 +34,7 @@
         <MtouchVerbosity>
         </MtouchVerbosity>
         <CreatePackage>false</CreatePackage>
-        <IntermediateOutputPath>obj\iPhone\Release\net7.0-ios\iossimulator-x64</IntermediateOutputPath>
+        <IntermediateOutputPath>obj\iPhone\Release\net8.0-ios\iossimulator-x64</IntermediateOutputPath>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
         <CodesignKey>iPhone Developer</CodesignKey>
@@ -62,6 +62,6 @@
       <CreatePackage>false</CreatePackage>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Plugin.Movesense" Version="3.15.0-beta" />
+        <PackageReference Include="Plugin.Movesense" Version="3.15.0.6-beta" />
     </ItemGroup>
 </Project>

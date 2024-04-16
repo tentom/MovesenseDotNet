@@ -5,20 +5,18 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
-#if __IOS__
-using Foundation;
-#endif
+
 
 namespace MdsLibrary.Api
 {
     /// <summary>
     /// Makes a subscription to an MdsLib resource
     /// </summary>
-    public class ApiSubscription<T> :
+    public partial class ApiSubscription<T> :
         Java.Lang.Object, Com.Movesense.Mds.IMdsNotificationListener,
         IApiSubscription<T>
     {
-
+        
         private static readonly string URI_EVENTLISTENER = "suunto://MDS/EventListener";
 
 

@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net7.0-ios</TargetFrameworks>
+    <TargetFrameworks>net8.0-ios</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
 
     <PackageId>MovesenseBindingiOS</PackageId>
-    <Version>3.15.0.0-beta</Version>
+    <Version>3.15.0.1-beta</Version>
     <Authors>Anze Vodovnik, Andy Wigley, Morten Liland</Authors>
     <Description>.NET binding for Movesense iOS mdslib</Description>
 
@@ -37,5 +37,11 @@
       <!-- <LinkerFlags>-lz</LinkerFlags> -->
       <Frameworks>Security, CoreBluetooth, CoreFoundation</Frameworks>
     </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resource\libmds.a" />
+  </ItemGroup>
+  <ItemGroup>
+    
   </ItemGroup>
 </Project>

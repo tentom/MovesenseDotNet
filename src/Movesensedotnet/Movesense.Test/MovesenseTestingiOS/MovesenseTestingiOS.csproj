@@ -52,7 +52,7 @@
     <Compile Include="..\..\Movesense\Shared\Api\IMdsSubscription.cs" Link="Shared\Api\IMdsSubscription.cs" />
     <Compile Include="..\..\Movesense\Shared\Api\LedColorEnum.cs" Link="Shared\Api\LedColorEnum.cs" />
     <Compile Include="..\..\Movesense\Shared\Api\MdsException.cs" Link="Shared\Api\MdsException.cs" />
-    <Compile Include="..\..\Movesense\Shared\Api\MdsSubscription.cs" Link="Shared\Api\MdsSubscription.cs" />
+    <Compile Include="..\..\Movesense\Shared\Api\MdsSubscriptionImplementation.cs" Link="Shared\Api\MdsSubscriptionImplementation.cs" />
     <Compile Include="..\..\Movesense\Shared\CrossMovesense.cs" Link="Shared\CrossMovesense.cs" />
     <Compile Include="..\..\Movesense\Shared\Helpers\Util.cs" Link="Shared\Helpers\Util.cs" />
     <Compile Include="..\..\Movesense\Shared\IMdsConnectionService.cs" Link="Shared\IMdsConnectionService.cs" />

@@ -2,19 +2,34 @@ using System;
 using Foundation;
 using CoreBluetooth;
 using ObjCRuntime;
+using System.Runtime.InteropServices;
 
 namespace Movesense
 {
 	[Static]
 	partial interface Constants
 	{
+        /// <summary>
+        /// Morten 2024.04.16: having theese in here made linker failing with the error below
+		/// This seems to be an issue with new .net sdk or workload for MAUI worked fine around 28.3 (in pipeline) and stoped working after updating VS4Mac
+		/// that updated workload and sdk at 14.4 but these updates was manualy kept back.
+        /// </summary>
+        /// /usr/local/share/dotnet/packs/Microsoft.iOS.Sdk/17.2.8053/targets/Xamarin.Shared.Sdk.targets(3,3): Error: clang++ exited with code 1:
+		/// Undefined symbols for architecture arm64:
+		/// "_MovesenseApiVersionNumber", referenced from:
+		/// -exported_symbol[s_list] command line option
+		/// "_MovesenseApiVersionString", referenced from:
+		/// -exported_symbol[s_list] command line option
+		/// ld: symbol(s) not found for architecture arm64
+		/// clang: error: linker command failed with exit code 1 (use -v to see invocation) (NothingApp3)
+
         // extern double MovesenseApiVersionNumber;
-        [Field("MovesenseApiVersionNumber", "__Internal")]
-        double MovesenseApiVersionNumber { get; }
+        //[Field("MovesenseApiVersionNumber", "__Internal")]
+        //double MovesenseApiVersionNumber { get; }
 
         // extern const unsigned char[] MovesenseApiVersionString;
-        [Field("MovesenseApiVersionString", "__Internal")]
-        IntPtr MovesenseApiVersionString { get; }
+        //[Field("MovesenseApiVersionString", "__Internal")]
+        //IntPtr MovesenseApiVersionString { get; }
 
         // extern NSString *const _Nonnull MovesenseServiceUUID;
         [Field ("MovesenseServiceUUID", "__Internal")]

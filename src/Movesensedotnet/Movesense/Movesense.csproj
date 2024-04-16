@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0-ios</TargetFrameworks>
-    <TargetFrameworks>$(TargetFrameworks);net7.0-android</TargetFrameworks>
+    <TargetFrameworks>net8.0-ios</TargetFrameworks>
+    <TargetFrameworks>$(TargetFrameworks);net8.0-android</TargetFrameworks>
     <!--
     -->
 
@@ -22,8 +22,8 @@
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <AssemblyVersion>0.0.1.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-    <Version>3.15.0.1-beta</Version>
-    <PackageVersion>3.15.0.1-beta</PackageVersion>
+    <Version>3.15.0.6-beta</Version>
+    <PackageVersion>3.15.0.6-beta</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>
@@ -49,7 +49,7 @@
 
     <Owners>Andy Wigley</Owners>
     <Authors>Andy Wigley, Morten Liland</Authors>
-    <Copyright>Copyright 2023</Copyright>
+    <Copyright>Copyright 2024</Copyright>
     <Company></Company>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -61,6 +61,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
@@ -68,8 +71,15 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
 
-
     <PackageReference Include="Xamarin.Google.Dagger" Version="2.39.1" Condition="'$(TargetFramework)' == 'net7.0-android'" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.Contains('net8'))">
+	<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.20" />
+    <!--
+	<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.3" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    -->
   </ItemGroup>
 
   <ItemGroup>
@@ -77,13 +87,16 @@
     <None Remove="Shared\Api\IApiSubscription.cs" />
     <None Remove="Shared\Api\IMdsSubscription.cs" />
     <None Remove="Shared\Api\LedColorEnum.cs" />
-    <None Remove="Shared\Api\MdsSubscription.cs" />
+    <None Remove="Shared\Api\MdsSubscriptionImplementation.cs" />
     <None Remove="Shared\Model\AppInfo.cs" />
   </ItemGroup>
 
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
-    <PackageReference Include="MovesenseBindingiOS" Version="3.15.0-beta" />
+  <ItemGroup Condition="$(TargetFramework.Contains('-ios'))">
+    <PackageReference Include="MovesenseBindingiOS" Version="3.15.0.1-beta" />
+  </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework.Contains('-android'))">
+      <PackageReference Include="MovesenseBindingAndroid" Version="3.15.0.8-beta" />
   </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

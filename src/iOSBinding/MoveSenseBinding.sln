@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NothingApp2", "NothingApp2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovesenseBindingiOS", "Movesense\MovesenseBindingiOS.csproj", "{380D129A-E3EC-476E-B07B-B23B49AE3E3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NothingApp3", "NothingApp3\NothingApp3.csproj", "{327311F2-F21A-4360-9DDC-5A3F2123D422}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,18 @@ Global
 		{380D129A-E3EC-476E-B07B-B23B49AE3E3F}.Release|iPhone.Build.0 = Release|Any CPU
 		{380D129A-E3EC-476E-B07B-B23B49AE3E3F}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{380D129A-E3EC-476E-B07B-B23B49AE3E3F}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Release|iPhone.Build.0 = Release|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{327311F2-F21A-4360-9DDC-5A3F2123D422}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
